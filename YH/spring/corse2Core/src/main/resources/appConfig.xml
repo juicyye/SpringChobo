@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="MemberService" class ="member">
+        <constructor-arg name="MemberRepository" ref="example.corse2Core.member.MemberServiceImpl" />
+    </bean>
+    <bean id="MemberRepository"
+          class="example.corse2Core.member.MemberServiceImpl" />
+    <bean id="OrderService" class="example.corse2Core.member.MemberServiceImpl">
+        <constructor-arg name="MemberRepository" ref="MemberRepository" />
+        <constructor-arg name="DiscountPolicy" ref="DiscountPolicy" />
+    </bean>
+    <bean id="DiscountPolicy" class="example.corse2Core.discount.RateDiscountPolicy" />
+</beans>
